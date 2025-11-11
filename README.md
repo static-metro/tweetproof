@@ -62,16 +62,23 @@ Anyone can take your tweet text and signature, use your public key, and confirm 
    ed25519: YOUR_PUBLIC_KEY
    ```
 
-4. Sign tweets:
+4. Sign tweets (now with argparse support):
 
    ```bash
+   # Interactive mode
    python sign_tweet.py
+
+   # Or pass tweet text directly
+   python sign_tweet.py -m "testing tweetproof"
+
+   # Use a custom .env file
+   python sign_tweet.py -m "alt account tweet" --env alt.env
    ```
 
    Output:
 
    ```md
-   testing this out
+   testing tweetproof
    //sig:jo/SrSsF4M8gCCu0KXKXw5QS236BoNkx0LfntrQsIM/N1igCKVot/H9pI+rvCs5c...
    ```
 
@@ -98,6 +105,17 @@ Anyone can take your tweet text and signature, use your public key, and confirm 
 
 ---
 
+## 🧩 Command Reference
+
+| Command | Description |
+|----------|-------------|
+| `python gen_key.py` | Generates a new Ed25519 keypair and writes `.env`. |
+| `python sign_tweet.py -m "text"` | Signs a tweet with your private key. |
+| `python sign_tweet.py --env path/to/env -m "text"` | Signs using a custom `.env` file. |
+| `python verify_tweet.py` | Verifies a pasted tweet and signature. |
+
+---
+
 ## 🔒 What This Proves
 
 Anyone can verify:
@@ -118,7 +136,12 @@ Just a **mathematically verifiable identity**, right there in your bio.
 
 ## 🧩 Dependencies
 
-Listed in `requirements.txt`
+Listed in `requirements.txt`  
+To install manually:
+
+```bash
+pip install pynacl python-dotenv
+```
 
 ---
 
