@@ -11,7 +11,7 @@ Each tweet is signed locally using an **Ed25519 private key**, producing a short
 
 ```md
 hello world
-#sig:KZcOq9pHk0q8wq1w...etc...
+//sig:KZcOq9pHk0q8wq1w...etc...
 ```
 
 Your **public key** (in your Twitter bio) can be used by anyone to verify that the tweet was written by you.
@@ -72,7 +72,7 @@ Anyone can take your tweet text and signature, use your public key, and confirm 
 
    ```md
    testing this out
-   #sig:jo/SrSsF4M8gCCu0KXKXw5QS236BoNkx0LfntrQsIM/N1igCKVot/H9pI+rvCs5c...
+   //sig:jo/SrSsF4M8gCCu0KXKXw5QS236BoNkx0LfntrQsIM/N1igCKVot/H9pI+rvCs5c...
    ```
 
    Paste that **exactly** into Twitter.
@@ -83,7 +83,7 @@ Anyone can take your tweet text and signature, use your public key, and confirm 
    python verify_tweet.py
    ```
 
-   Paste the tweet (including the `#sig:` line) and hit Enter twice.  
+   Paste the tweet (including the `//sig:` line) and hit Enter twice.  
    You’ll see:
 
    ```md
