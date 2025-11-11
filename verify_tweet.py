@@ -29,7 +29,7 @@ if not tweet_lines:
 TWEET = "\n".join(tweet_lines)
 
 lines = TWEET.splitlines()
-if len(lines) < 2 or not lines[-1].startswith("#sig:"):
+if len(lines) < 2 or not lines[-1].startswith("//sig:"):
     raise SystemExit("bad tweet format")
 
 msg_text = "\n".join(lines[:-1])
