@@ -26,4 +26,4 @@ signed = sk.sign(msg.encode("utf-8"))
 sig_b64 = base64.b64encode(signed.signature).decode("ascii")
 
 print(msg)
-print(f"#sig:{sig_b64}")
+print(f"//sig:{sig_b64}")
