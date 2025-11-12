@@ -43,26 +43,33 @@ Anyone can take your tweet text and signature, use your public key, and confirm 
    pip install -r requirements.txt
    ```
 
-3. Generate your Ed25519 keypair:
+3. Generate your Ed25519 keypair (now with argparse support):
 
    ```bash
+   # Default usage
    python gen_key.py
+
+   # Custom output path
+   python gen_key.py --out alt.env
+
+   # Overwrite existing file without prompt
+   python gen_key.py --force
    ```
 
-   This creates a `.env` file with:
+   This creates an `.env` (or custom) file with:
 
    ```bash
    PRIVATE_KEY=...
    PUBLIC_KEY=...
    ```
 
-   Add the public key (from `.env`) to your Twitter bio in this format:
+   Add the public key (from the generated file) to your Twitter bio in this format:
 
    ```md
    ed25519: YOUR_PUBLIC_KEY
    ```
 
-4. Sign tweets (now with argparse support):
+4. Sign tweets (with argparse support):
 
    ```bash
    # Interactive mode
@@ -110,6 +117,8 @@ Anyone can take your tweet text and signature, use your public key, and confirm 
 | Command | Description |
 |----------|-------------|
 | `python gen_key.py` | Generates a new Ed25519 keypair and writes `.env`. |
+| `python gen_key.py --out alt.env` | Outputs keys to a custom file. |
+| `python gen_key.py --force` | Overwrites existing `.env` without confirmation. |
 | `python sign_tweet.py -m "text"` | Signs a tweet with your private key. |
 | `python sign_tweet.py --env path/to/env -m "text"` | Signs using a custom `.env` file. |
 | `python verify_tweet.py` | Verifies a pasted tweet and signature. |
